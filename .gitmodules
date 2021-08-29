@@ -1,0 +1,3 @@
+[submodule "sit-rezervo"]
+	path = sit-rezervo
+	url = https://github.com/mathiazom/sit-rezervo.git
