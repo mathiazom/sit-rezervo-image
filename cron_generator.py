@@ -36,7 +36,7 @@ def main():
     with open(sys.argv[1], "w+") as cron_file:
         cron_file.write(
             f"{cron_time.minute} {cron_time.hour} * * {cron_weekday} "
-            ". /sit-rezervo/sit-rezervo-env.sh && "
+            ". /sit-rezervo-env.sh && "
             "(cd /sit-rezervo/ || exit 1; PATH=$PATH:/usr/local/bin "
             "/opt/rikardo/bin/python -u rezervo.py >> /var/log/cron.log 2>&1)"
             "\n"  # Empty line to please the cron gods ...
