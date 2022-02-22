@@ -1,11 +1,7 @@
 #!/bin/sh
 
-echo "Loading booking environment variables..."
-printenv | grep -e ^SIT_REZERVO_ | sed 's/^\(.*\)=\(.*\)$/export \1="\2"/g' > sit-rezervo-env.sh
-cat sit-rezervo-env.sh | grep -o -E ^[^=]* 2>&1
-
 echo "Generating crontab..."
-python -u cron_generator.py sit-rezervo-cron
+/opt/rikardo/bin/python -u sit-rezervo/cron_generator.py sit-rezervo-cron
 
 echo "Installing crontab..."
 cp sit-rezervo-cron /etc/cron.d/sit-rezervo-cron

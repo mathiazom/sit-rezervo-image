@@ -13,7 +13,7 @@ COPY sit-rezervo sit-rezervo
 
 RUN python -m venv /opt/rikardo && /opt/rikardo/bin/pip install --no-cache-dir -r sit-rezervo/requirements.txt
 
-COPY cron_generator.py cron_generator.py
+COPY sit-rezervo/cron_generator.py cron_generator.py
 
 # Create cron log file to be able to run tail
 RUN touch /var/log/cron.log
