@@ -10,4 +10,4 @@ crontab /etc/cron.d/sit-rezervo-cron
 cat /etc/cron.d/sit-rezervo-cron
 
 echo "Starting cron..."
-cron && tail -f /var/log/cron.log
+cron && tail -f /var/log/sit-rezervo.log

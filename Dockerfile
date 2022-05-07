@@ -9,14 +9,16 @@ RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckod
 tar -xvzf geckodriver-v0.31.0-linux32.tar.gz && \
 mv geckodriver /usr/local/bin/
 
+COPY sit-rezervo/requirements.txt sit-rezervo/requirements.txt
+
+RUN python -m venv /opt/rikardo && \
+/opt/rikardo/bin/pip install -U pip && \
+/opt/rikardo/bin/pip install --no-cache-dir -r sit-rezervo/requirements.txt
+
 COPY sit-rezervo sit-rezervo
 
-RUN python -m venv /opt/rikardo && /opt/rikardo/bin/pip install --no-cache-dir -r sit-rezervo/requirements.txt
-
-COPY sit-rezervo/cron_generator.py cron_generator.py
-
 # Create cron log file to be able to run tail
-RUN touch /var/log/cron.log
+RUN touch /var/log/sit-rezervo.log
 
 # Set local timezone (for cron)
 RUN ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
