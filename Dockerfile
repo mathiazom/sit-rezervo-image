@@ -5,8 +5,8 @@ apt -y install firefox-esr && \
 apt -y install cron
 
 # Download and install geckodriver (must be in /usr/bin to be accessed by cron)
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz && \
-tar -xvzf geckodriver-v0.29.1-linux64.tar.gz && \
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux32.tar.gz && \
+tar -xvzf geckodriver-v0.31.0-linux32.tar.gz && \
 mv geckodriver /usr/local/bin/
 
 COPY sit-rezervo sit-rezervo
